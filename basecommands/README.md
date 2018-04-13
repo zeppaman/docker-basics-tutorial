@@ -1,4 +1,5 @@
-#Docker basic commands
+# Docker basic commands
+First of all pull command. It takes images from docker hub and bring to our local host.
 
 > docker pull alpine
 
@@ -13,12 +14,17 @@ Digest: sha256:7df6db5aa61ae9480f52f0b3a06a140ab98d427f86d8d5de0bedab9b8df6b1c0
 Status: Downloaded newer image for alpine:latest
 ```
 
+Then we can use docker images command to display all images. You should see downloaded image. Please notice size (less than 5 MB).
+
 ```console
 docker images
 alpine                                              latest                   3fd9065eaf02        3 months ago        4.15MB
 ```
 
-# Pull and run simple http server
+## Pull and run simple http server
+
+This example will pull an image with a build in http server. This image stars from the base OS image then add many layer to get full functionalities.
+
 Example: http server
 https://github.com/fnichol/docker-uhttpd/blob/master/Dockerfile
 
@@ -39,13 +45,26 @@ Digest: sha256:28e6f95cf33ae1336525034e2b9d58ddf3cc63a2cdd9edebc8765321d96da9e0
 Status: Downloaded newer image for fnichol/uhttpd:latest
 ```
 
-## run an image
+## Run an image
+
+Now we have the image, let's try to run it. Notice that we need to map port to reach the virtual docker network. Usually we do not use ports that may be in conflict with tradizional port service in host machine.
+
 docker run  -p 8080:80 --name simple-http  fnichol/uhttpd
 
-- see it on (docker ps)
-- see localhost:8080 it responds!
-- go inside machine using kitematic (or docker exec -it simple-http bash) THIS FAILS!
+What to do now?
 
-## map folders
+- see it turned on (using **docker ps** that list docke containers)
+- see localhost:8080 it responds! Great!
+- go inside machine using kitematic (or **docker exec -it simple-http bash**)  => why didn't work? please see next chapter!
+
+## Map folders
+
+Just notice your image starts with built in content. How to put your application files inside? This is done by mapping volumes. Volumes link local files to the container so that you can let container read some path on your drive (just to make a comparison it seems very similar to symbolic links on linux!)
 
 docker run  -p 8085:80 -v %cd%/http/:/www/  --name simple-http-volume fnichol/uhttpd
+
+**Note:** %cd% have to be changed with 'pwd' in linux.
+
+
+## Point of interest
+We can downlad docker images, run it locally and changes to run or application. 
