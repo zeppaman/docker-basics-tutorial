@@ -73,3 +73,5 @@ yes, also in this case you can execute remote code (and maybe use bash to access
 
 ## Points of interest
 You can build your own machine by adding  a set of command on a docker file. Each command means  a new layer is created. Bad news is that layers do not comunicate one each other so you will usually manage a long set of *&&* separated command ( you are partially saved by using  **&& \\** to have some that can be read without an headhache)
+
+** Alpine Linux image doesn't contain bash, Instead you can use /bin/ash, /bin/sh, ash or only sh. Now you know with previous step was just didattic**
