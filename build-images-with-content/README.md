@@ -3,6 +3,20 @@ This put  content into an image during build. It is useful to provide your own i
 
 This is very simple, just use COPY command to add contents
 
-COPY http /var/tmp/
+> COPY http /var/tmp/
 
 Using the right combination of "RUN" and "COPY" you will be able to realize all your forbidden dreams, or quite.
+
+
+```console
+docker build . -t http-server-embedded
+```
+
+
+```console
+ docker run -p 8086:80 --name http-server-embedded-instance http-server-embedded
+ ```
+
+ ```console
+ docker exec -it http-server-embedded-instance bash
+ ```

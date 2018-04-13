@@ -1,4 +1,4 @@
- # Buil your first docker image
+ # Build your first docker image
  Docker syntax to build a docker image is very simple. Just:
 
  - put a "Dockerfile" into a folder
@@ -56,6 +56,7 @@ Successfully built 36bb15f5801d
 ```
 
 Where is my image? Just run *docker images* !!
+
 ## Try to run the image
 As for regular images pulled from docker, just run it!
 
