@@ -54,17 +54,22 @@ docker run  -p 8080:80 --name simple-http  fnichol/uhttpd
 What to do now?
 
 - see it turned on (using **docker ps** that list docke containers)
-- see localhost:8080 it responds! Great!
+- see [localhost:8080](http://localhost:8080) it responds! Great!
 - go inside machine using kitematic (or **docker exec -it simple-http bash**)  => why didn't work? please see next chapter!
 
 ## Map folders
 
 Just notice your image starts with built in content. How to put your application files inside? This is done by mapping volumes. Volumes link local files to the container so that you can let container read some path on your drive (just to make a comparison it seems very similar to symbolic links on linux!)
 
+docker run  -p 8085:80 -v /G/projects/docker-basics-tutorial/basecommands/http/:/www/  --name simple-http-volume fnichol/uhttpd
+
+volumes whant absolute paths, but is better to avoid hardcoded values
+
 docker run  -p 8085:80 -v %cd%/http/:/www/  --name simple-http-volume fnichol/uhttpd
 
 **Note:** %cd% have to be changed with 'pwd' in linux.
 
+[localhost:8085](http://localhost:8085)
 
 ## Point of interest
 We can downlad docker images, run it locally and changes to run or application. 

@@ -14,8 +14,10 @@ docker build . -t http-server-embedded
 
 
 ```console
- docker run -p 8086:80 --name http-server-embedded-instance http-server-embedded
+ docker run -p 8086:8080 --name http-server-embedded-instance http-server-embedded
  ```
+
+[localhost:8086](http://localhost:8086)
 
  ```console
  docker exec -it http-server-embedded-instance bash

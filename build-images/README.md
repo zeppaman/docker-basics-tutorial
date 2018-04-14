@@ -63,13 +63,20 @@ As for regular images pulled from docker, just run it!
 ```console
 docker run -p 8091:8080 --name http-server-cool-instance http-server-cool
 ```
+[localhost:8091](http://localhost:8091)
+
 
 Yes, also in this case name is optional... but you'll agree with me is easier to find instance by speaking name rater then by meaningless sequence of characters.
 
 ```console
-docker -it exec  http-server-cool-instance bash
+docker  exec -it  http-server-cool-instance bash
+
+
+docker stop  http-server-cool-instance ; docker rm  http-server-cool-instance
+
 ```
 yes, also in this case you can execute remote code (and maybe use bash to access it)
+
 
 ## Points of interest
 You can build your own machine by adding  a set of command on a docker file. Each command means  a new layer is created. Bad news is that layers do not comunicate one each other so you will usually manage a long set of *&&* separated command ( you are partially saved by using  **&& \\** to have some that can be read without an headhache)

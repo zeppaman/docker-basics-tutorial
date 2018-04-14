@@ -5,3 +5,12 @@ Wget is an open source proejct made with PHP backend and angular frontend to sto
 
 yes, we can use a dockerfile! See Dockerfile for info.
 
+```console
+# login needed!
+# docker login 
+
+docker build . -t wpget
+
+docker tag wpget zeppaman/wpget
+docker push zeppaman/wpget
+```
