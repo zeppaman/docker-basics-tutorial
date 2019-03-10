@@ -1,4 +1,4 @@
-# Simple tutorial to understant docker basics
+# Simple tutorial to understand docker basics
 
 This is a simple collection of examples to learn docker basics and be convinced to start learn it better.
 
